@@ -1,0 +1,978 @@
+Real
+Normal
+SetUpEditor RPNS,RPNU,RPNL,RPNR,RPNM
+SetUpEditor 
+If not(dim(ʟRPNS))
+{0}→ʟRPNS
+If not(dim(ʟRPNU))
+{0}→ʟRPNU
+If not(dim(ʟRPNL))
+{0}→ʟRPNL
+If dim(ʟRPNR)≠10
+10→dim(ʟRPNR)
+If dim(ʟRPNM)≠4
+{0,0,4,1}→ʟRPNM
+ʟRPNM(1)→A
+ʟRPNM(2)→F
+ʟRPNM(3)→D
+ʟRPNM(4)→P
+If P<1 or P>19
+1→P
+{2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,0,0,1,1,2,2,1,1,1,1,1,1,1,1,2,2,3,3,3,1,1,1,1,2,2,2,2,2,2,4,4,4,4,2,1,2,1,2,3,1,1,1,0,1,1,2,2,0,0,0,0,0,0,0,0,1,1,1,0,0,0}→ʟRPNA
+{73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,0,0,20,19,8,7,30,21,22,23,24,29,31,32,33,28,25,34,35,36,37,38,16,18,26,27,40,12,13,14,39,5,41,42,43,44,53,45,46,47,48,49,50,51,52,0,0,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,91,92,93,94,95,96,97,98,99,0}→ʟRPNP
+"DUP  SWAP DROP OVER ROT  PICK ROLL RLLD DPTH DRPN DUPN DUP2 DRP2 CLR  LAST STO  RCL  UNDO           ABS  NEG  1/X  SQRT XRT  IP   FP   FLOR CEIL RND  MOD  MIN  MAX  SIGN N!   PCT  PCH  PCTT COMB PERM 10^X E^X  CUBE CBRT E    ASIN ACOS ATAN PI   Y^X  D>R  R>D  >POL >REC HYPT SINH COSH TANH ASNH ACSH ATNH >H.M H.M>           HYPT LEG  HERN LAWC LAWS CIRA CIRC SPHV SPHA ARC  CYLV CYLA CONV CONA SECT DIST SLOP MID  ANGL POLY DEG  RAD  STD  FIX  SCI  ENG  KEYS HELP QUIT      "→Str2
+105→dim(ʟRPNK)
+Fill(0,ʟRPNK)
+105→dim(ʟRPNJ)
+Fill(0,ʟRPNJ)
+111→ʟRPNK(11)
+112→ʟRPNK(12)
+113→ʟRPNK(13)
+114→ʟRPNK(14)
+115→ʟRPNK(15)
+109→ʟRPNK(22)
+101→ʟRPNK(23)
+106→ʟRPNK(24)
+90→ʟRPNK(25)
+107→ʟRPNK(26)
+74→ʟRPNK(34)
+108→ʟRPNK(41)
+8→ʟRPNK(42)
+105→ʟRPNK(45)
+5→ʟRPNK(51)
+9→ʟRPNK(52)
+10→ʟRPNK(53)
+11→ʟRPNK(54)
+4→ʟRPNK(55)
+6→ʟRPNK(61)
+103→ʟRPNK(62)
+77→ʟRPNK(63)
+76→ʟRPNK(64)
+3→ʟRPNK(65)
+15→ʟRPNK(71)
+2→ʟRPNK(75)
+17→ʟRPNK(81)
+1→ʟRPNK(85)
+88→ʟRPNK(91)
+74→ʟRPNK(95)
+104→ʟRPNK(103)
+102→ʟRPNK(104)
+100→ʟRPNK(105)
+99→ʟRPNJ(22)
+86→ʟRPNJ(23)
+30→ʟRPNJ(51)
+12→ʟRPNJ(52)
+13→ʟRPNJ(53)
+14→ʟRPNJ(54)
+7→ʟRPNJ(61)
+103→ʟRPNJ(62)
+16→ʟRPNJ(71)
+18→ʟRPNJ(81)
+89→ʟRPNJ(91)
+87→ʟRPNJ(105)
+{0}→ʟRPNO
+1→θ
+0→Q
+1→B
+0→S
+0→R
+0→V
+0→E
+""→Str1
+Repeat Q
+If θ:Then
+If A:Then
+Radian
+1→M
+Else
+Degree
+π/180→M
+End
+Normal
+If F=0
+Float
+If F=2
+Sci
+If F=3
+Eng
+If F:Then
+If D=0
+Fix 0
+If D=1
+Fix 1
+If D=2
+Fix 2
+If D=3
+Fix 3
+If D=4
+Fix 4
+If D=5
+Fix 5
+If D=6
+Fix 6
+If D=7
+Fix 7
+If D=8
+Fix 8
+If D=9
+Fix 9
+End
+0→θ
+End
+dim(ʟRPNS)-1→N
+If B=1:Then
+ClrHome
+If V:Then
+Output(1,1,Str3)
+Else
+sub("DEGRAD",3*A+1,3)+" "+sub("STDFIXSCIENG",3*F+1,3)→Str5
+If F
+Str5+" "+sub("0123456789",D+1,1)→Str5
+If S
+Str5+" 2ND"→Str5
+If R
+Str5+sub(" STO? RCL?",5*R-4,5)→Str5
+1+(P≥5)+(P≥10)+(P≥14)+(P≥18)→G
+(G=1)+5*(G=2)+10*(G=3)+14*(G=4)+18*(G=5)→U
+sub("STACK MATH  TRIG  GEOM  MODE  ",6*G-5,6)+sub("0123456789",P-U+2,1)+"/"+sub("0123456789",5+(G=2)-2*(G=5),1)→Str6
+Output(1,1,Str5)
+Output(1,27-length(Str6),Str6)
+End
+For(I,1,7)
+Output(9-I,1,sub("0123456789",I+1,1)+":")
+If I≤N:Then
+toString(ʟRPNS(N+2-I))→Str4
+If length(Str4)>23
+sub(Str4,1,23)→Str4
+Output(9-I,27-length(Str4),Str4)
+End
+End
+If length(Str1)
+Output(9,1,Str1+"_")
+Output(10,1,sub(Str2,25*P-24,25))
+V→E
+End
+If B=2
+Output(9,1,Str1+"_ ")
+0→V
+1→B
+0→C
+0→K
+Repeat K
+getKey→K
+End
+If K=21:Then
+not(S)→S
+0→K
+End
+If K=31
+0→K
+⁻1→J
+If K=102
+0→J
+int(K/10)→L
+If L≥7 and L≤9 and K-10*L≥2 and K-10*L≤4
+3*(9-L)+K-10*L-1→J
+If R and K:Then
+If J≥0:Then
+If R=1:Then
+If N<1:Then
+"TOO FEW ARGUMENTS"→Str3
+1→V
+Else
+ʟRPNS→ʟRPNU
+ʟRPNS(N+1)→ʟRPNR(J+1)
+N→dim(ʟRPNS)
+"STORED IN R"+sub("0123456789",J+1,1)→Str3
+1→V
+End
+Else
+ʟRPNS→ʟRPNU
+ʟRPNR(J+1)→ʟRPNS(N+2)
+End
+0→K
+End
+0→R
+If K=45
+0→K
+End
+If K and J≥0:Then
+length(Str1)→L
+0→G
+If L:Then
+inString(Str1,"ᴇ")→U
+If U
+L-U-(inString(Str1,"ᴇ⁻")≠0)→G
+End
+If L<23 and G<2:Then
+If Str1="0"
+""→Str1
+If Str1="⁻0"
+"⁻"→Str1
+Str1+sub("0123456789",J+1,1)→Str1
+End
+2-E→B
+0→K
+0→S
+End
+If K:Then
+ʟRPNK(K)→C
+If S:Then
+If ʟRPNJ(K)
+ʟRPNJ(K)→C
+End
+0→S
+If not(C):Then
+sub("0123456789",K-10*int(K/10)+1,1)→Str4
+sub("0123456789",int(K/10)-10*int(K/100)+1,1)+Str4→Str4
+If K≥100
+"1"+Str4→Str4
+"KEY "+Str4+" UNUSED"→Str3
+1→V
+End
+If C≥111
+ʟRPNP(5*P-115+C)→C
+End
+length(Str1)→L
+If C=100 and not(L)
+73→C
+If C=101:Then
+If L:Then
+If L=1:Then
+""→Str1
+Else
+sub(Str1,1,L-1)→Str1
+If Str1="⁻"
+""→Str1
+End
+0→C
+Else
+75→C
+End
+End
+If C=102:Then
+If L:Then
+inString(Str1,"ᴇ")→U
+If U:Then
+If U<L:Then
+If sub(Str1,U+1,1)="⁻":Then
+If U+1=L:Then
+sub(Str1,1,U)→Str1
+Else
+sub(Str1,1,U)+sub(Str1,U+2,L-U-1)→Str1
+End
+Else
+sub(Str1,1,U)+"⁻"+sub(Str1,U+1,L-U)→Str1
+End
+Else
+Str1+"⁻"→Str1
+End
+Else
+If sub(Str1,1,1)="⁻":Then
+If L=1:Then
+""→Str1
+Else
+sub(Str1,2,L-1)→Str1
+End
+Else
+"⁻"+Str1→Str1
+End
+End
+2-E→B
+0→C
+Else
+19→C
+End
+End
+If C=103:Then
+0→U
+If L
+inString(Str1,"ᴇ")→U
+If not(U) and L<22:Then
+If L=0 or Str1="⁻"
+Str1+"1"→Str1
+Str1+"ᴇ"→Str1
+End
+2-E→B
+0→C
+End
+If C=104:Then
+0→U
+If L
+inString(Str1,".")+inString(Str1,"ᴇ")→U
+If not(U) and L<21:Then
+If L=0 or Str1="⁻":Then
+Str1+"0."→Str1
+Else
+Str1+"."→Str1
+End
+End
+2-E→B
+0→C
+End
+If C=105:Then
+If L:Then
+""→Str1
+0→C
+Else
+86→C
+End
+End
+If C=106:Then
+P-1+19*(P=1)→P
+0→C
+End
+If C=107:Then
+P+1-19*(P=19)→P
+0→C
+End
+If C=108:Then
+1+(P≥5)+(P≥10)+(P≥14)+(P≥18)→G
+5*(G=1)+10*(G=2)+14*(G=3)+18*(G=4)+(G=5)→P
+0→C
+End
+If C=109:Then
+18→P
+0→C
+End
+length(Str1)→L
+If L and C≥1 and C≤100:Then
+Str1→Str6
+If sub(Str6,L,1)="ᴇ":Then
+sub(Str6,1,L-1)→Str6
+Else
+If L≥2:Then
+If sub(Str6,L-1,2)="ᴇ⁻"
+sub(Str6,1,L-2)→Str6
+End
+End
+ʟRPNS→ʟRPNU
+expr(Str6)→ʟRPNS(N+2)
+N+1→N
+""→Str1
+If C=100
+0→C
+End
+If C≥1 and C≤99:Then
+ʟRPNA(C)→T
+If N<T:Then
+"TOO FEW ARGUMENTS"→Str3
+1→V
+End
+If not(V):Then
+If N≥1
+ʟRPNS(N+1)→X
+If N≥2
+ʟRPNS(N)→Y
+If N≥3
+ʟRPNS(N-1)→Z
+If N≥4
+ʟRPNS(N-2)→W
+1→O
+0→H
+If C≤29:Then
+If C=1
+Y+X→H
+If C=2
+Y-X→H
+If C=3:Then
+If X and Y:Then
+If log(abs(X))+log(abs(Y))≥100:Then
+"OVERFLOW"→Str3
+1→V
+End
+End
+If not(V)
+Y*X→H
+End
+If C=4:Then
+If X=0:Then
+"INFINITE RESULT"→Str3
+1→V
+Else
+If Y:Then
+If log(abs(Y))-log(abs(X))≥100:Then
+"OVERFLOW"→Str3
+1→V
+End
+End
+End
+If not(V)
+Y/X→H
+End
+If C=5:Then
+If Y=0:Then
+If X<0:Then
+"INFINITE RESULT"→Str3
+1→V
+End
+(X=0)→H
+Else
+If Y<0 and fPart(X):Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+End
+If not(V):Then
+If X*log(abs(Y))≥100:Then
+"OVERFLOW"→Str3
+1→V
+End
+End
+If not(V)
+Y^X→H
+End
+End
+If C=6:Then
+If X:Then
+If 2*log(abs(X))≥100:Then
+"OVERFLOW"→Str3
+1→V
+End
+End
+If not(V)
+X²→H
+End
+If C=7:Then
+If X<0:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+√(X)→H
+End
+End
+If C=8:Then
+If X=0:Then
+"INFINITE RESULT"→Str3
+1→V
+Else
+X⁻¹→H
+End
+End
+If C=9
+sin(X)→H
+If C=10
+cos(X)→H
+If C=11:Then
+If A=0 and abs(fPart(X/180))=.5:Then
+"INFINITE RESULT"→Str3
+1→V
+Else
+tan(X)→H
+End
+End
+If C≥12 and C≤13:Then
+If abs(X)>1:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+If C=12
+sin⁻¹(X)→H
+If C=13
+cos⁻¹(X)→H
+End
+End
+If C=14
+tan⁻¹(X)→H
+If C=15 or C=17:Then
+If X=0:Then
+"INFINITE RESULT"→Str3
+1→V
+End
+If X<0:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+End
+If not(V):Then
+If C=15
+log(X)→H
+If C=17
+ln(X)→H
+End
+End
+If C=16:Then
+If X≥100:Then
+"OVERFLOW"→Str3
+1→V
+Else
+10^(X)→H
+End
+End
+If C=18:Then
+If X≥230:Then
+"OVERFLOW"→Str3
+1→V
+Else
+𝑒^(X)→H
+End
+End
+If C=19
+⁻X→H
+If C=20
+abs(X)→H
+If C=21
+iPart(X)→H
+If C=22
+fPart(X)→H
+If C=23
+int(X)→H
+If C=24
+⁻int(⁻X)→H
+If C=25:Then
+If X<0 or fPart(X):Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+End
+If not(V) and X>69:Then
+"OVERFLOW"→Str3
+1→V
+End
+If not(V)
+X!→H
+End
+If C=26:Then
+If X:Then
+If 3*log(abs(X))≥100:Then
+"OVERFLOW"→Str3
+1→V
+End
+End
+If not(V)
+X³→H
+End
+If C=27
+³√(X)→H
+If C=28
+(X>0)-(X<0)→H
+If C=29:Then
+X→H
+If F=1
+round(X,D)→H
+If F≥2 and X:Then
+int(log(abs(X)))→L
+round(X/10^(L),D)*10^(L)→H
+End
+End
+End
+If C≥30 and C≤40:Then
+If C=30:Then
+If X=0:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+End
+If not(V) and Y<0:Then
+If fPart(X) or not(fPart(X/2)):Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+⁻(abs(Y)^(X⁻¹))→H
+End
+End
+If not(V) and Y=0:Then
+If X<0:Then
+"INFINITE RESULT"→Str3
+1→V
+End
+End
+If not(V) and Y≥0
+Y^(X⁻¹)→H
+End
+If C=31:Then
+Y→H
+If X
+Y-X*int(Y/X)→H
+End
+If C=32
+min(Y,X)→H
+If C=33
+max(Y,X)→H
+If C=34
+Y*X/100→H
+If C=35 or C=36:Then
+If Y=0:Then
+"INFINITE RESULT"→Str3
+1→V
+Else
+If C=35
+100*(X-Y)/Y→H
+If C=36
+100*X/Y→H
+End
+End
+If C=37 or C=38:Then
+If fPart(X) or fPart(Y) or X<0 or Y<X:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+If C=37
+Y nCr X→H
+If C=38
+Y nPr X→H
+End
+End
+If C=39
+π→H
+If C=40
+𝑒→H
+End
+If C≥41 and C≤52:Then
+If C=41
+X*π/180→H
+If C=42
+X*180/π→H
+If C=43:Then
+0→H
+If X or Y
+R►Pθ(Y,X)→H
+{R►Pr(Y,X),H}→ʟRPNO
+2→O
+End
+If C=44:Then
+{P►Rx(Y,X),P►Ry(Y,X)}→ʟRPNO
+2→O
+End
+If C≤47 and C≥45:Then
+If abs(X)>230:Then
+"OVERFLOW"→Str3
+1→V
+Else
+If C=45
+sinh(X)→H
+If C=46
+cosh(X)→H
+If C=47
+tanh(X)→H
+End
+End
+If C=48
+sinh⁻¹(X)→H
+If C=49:Then
+If X<1:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+cosh⁻¹(X)→H
+End
+End
+If C=50:Then
+If abs(X)=1:Then
+"INFINITE RESULT"→Str3
+1→V
+End
+If abs(X)>1:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+End
+If not(V)
+tanh⁻¹(X)→H
+End
+If C=51:Then
+abs(X)→G
+iPart(G)→L
+60*fPart(G)→H
+iPart(H)→J
+round(60*fPart(H),6)→U
+If U≥60:Then
+U-60→U
+J+1→J
+End
+If J≥60:Then
+J-60→J
+L+1→L
+End
+(1-2*(X<0))*(L+J/100+U/10000)→H
+End
+If C=52:Then
+abs(X)→G
+iPart(G)→L
+round(100*fPart(G),8)→U
+iPart(U)→J
+100*fPart(U)→U
+(1-2*(X<0))*(L+J/60+U/3600)→H
+End
+End
+If C≥53 and C≤72:Then
+If C=53
+√(Y²+X²)→H
+If C=54:Then
+If abs(X)>abs(Y):Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+√(Y²-X²)→H
+End
+End
+If C=55:Then
+If Z≤0 or Y≤0 or X≤0:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+(Z+Y+X)/2→G
+G*(G-Z)*(G-Y)*(G-X)→U
+If U<0:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+√(U)→H
+End
+End
+End
+If C=56
+√(max(0,Z²+Y²-2*Z*Y*cos(X)))→H
+If C=57:Then
+If sin(Y)=0:Then
+"INFINITE RESULT"→Str3
+1→V
+Else
+Z*sin(X)/sin(Y)→H
+End
+End
+If C=58
+π*X²→H
+If C=59
+2*π*X→H
+If C=60
+4*π*X³/3→H
+If C=61
+4*π*X²→H
+If C=62
+Y*X*M→H
+If C=63
+π*Y²*X→H
+If C=64
+2*π*Y*(Y+X)→H
+If C=65
+π*Y²*X/3→H
+If C=66
+π*Y*(Y+√(Y²+X²))→H
+If C=67
+Y²*X*M/2→H
+If C=68
+√((Y-W)²+(X-Z)²)→H
+If C=69:Then
+If Y=W:Then
+"INFINITE RESULT"→Str3
+1→V
+Else
+(X-Z)/(Y-W)→H
+End
+End
+If C=70:Then
+{(W+Y)/2,(Z+X)/2}→ʟRPNO
+2→O
+End
+If C=71:Then
+0→H
+If Y≠W or X≠Z
+R►Pθ(Y-W,X-Z)→H
+End
+If C=72:Then
+If fPart(Y) or Y<3:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+Y*X²/(4*tan(π/(Y*M)))→H
+End
+End
+End
+If C≥73 and C≤90:Then
+If C=73:Then
+{X,X}→ʟRPNO
+2→O
+End
+If C=74:Then
+{X,Y}→ʟRPNO
+2→O
+End
+If C=75 or C=85
+0→O
+If C=76:Then
+{Y,X,Y}→ʟRPNO
+3→O
+End
+If C=77:Then
+{Y,X,Z}→ʟRPNO
+3→O
+End
+If C=84:Then
+{Y,X,Y,X}→ʟRPNO
+4→O
+End
+If C=81
+N→H
+If C=78:Then
+If fPart(X) or X<1:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+End
+If not(V) and X>N-1:Then
+"TOO FEW ARGUMENTS"→Str3
+1→V
+End
+If not(V)
+ʟRPNS(N+1-X)→H
+End
+If C=79 or C=80 or C=82 or C=83:Then
+⁻1→O
+If fPart(X) or X<0:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+End
+If not(V) and X>N-1:Then
+"TOO FEW ARGUMENTS"→Str3
+1→V
+End
+If not(V):Then
+ʟRPNS→ʟRPNU
+{0,X}→ʟRPNL
+N→dim(ʟRPNS)
+If C=79 and X:Then
+ʟRPNS(N+1-X)→G
+For(I,N+1-X,N-1)
+ʟRPNS(I+1)→ʟRPNS(I)
+End
+G→ʟRPNS(N)
+End
+If C=80 and X:Then
+ʟRPNS(N)→G
+For(I,N,N+2-X,⁻1)
+ʟRPNS(I-1)→ʟRPNS(I)
+End
+G→ʟRPNS(N+1-X)
+End
+If C=82
+N-X→dim(ʟRPNS)
+If C=83 and X:Then
+For(I,N+1-X,N)
+ʟRPNS(I)→ʟRPNS(dim(ʟRPNS)+1)
+End
+End
+End
+End
+If C=86:Then
+⁻1→O
+If N:Then
+ʟRPNS→ʟRPNU
+{0}→ʟRPNS
+"CLEARED (UP=UNDO)"→Str3
+1→V
+End
+End
+If C=87:Then
+⁻1→O
+If dim(ʟRPNL)<2:Then
+"NO LAST ARGUMENTS"→Str3
+1→V
+Else
+ʟRPNS→ʟRPNU
+For(I,2,dim(ʟRPNL))
+ʟRPNL(I)→ʟRPNS(dim(ʟRPNS)+1)
+End
+End
+End
+If C=88 or C=89:Then
+⁻1→O
+C-87→R
+End
+If C=90:Then
+⁻1→O
+ʟRPNS→ʟRPNO
+ʟRPNU→ʟRPNS
+ʟRPNO→ʟRPNU
+End
+End
+If C≥91:Then
+⁻1→O
+If C=91:Then
+0→A
+1→θ
+End
+If C=92:Then
+1→A
+1→θ
+End
+If C=93:Then
+0→F
+1→θ
+End
+If C≥94 and C≤96:Then
+If fPart(X) or X<0 or X>9:Then
+"BAD ARGUMENT VALUE"→Str3
+1→V
+Else
+ʟRPNS→ʟRPNU
+N→dim(ʟRPNS)
+X→D
+C-93→F
+1→θ
+End
+End
+If C=97:Then
+ClrHome
+Disp "KEY CODES","CLEAR TWICE=EXIT"
+0→K
+0→G
+Repeat K=45 and G=45
+K→G
+0→K
+Repeat K
+getKey→K
+End
+Disp K
+End
+End
+If C=98:Then
+ClrHome
+Output(1,1,"RPN48 KEYS            1/2")
+Output(2,1,"ENTER  PUSH / DUP")
+Output(3,1,"DEL    BKSP / DROP")
+Output(4,1,"CLEAR  CANCEL / CLEAR")
+Output(5,1,"(-)  +/-     ,  EEX")
+Output(6,1,"DOWN OR <>  SWAP")
+Output(7,1,"UP  UNDO  (  ROT  )  OVER")
+Output(8,1,"N/D KEY  1/X")
+Output(9,1,"LEFT RIGHT  MENU PAGES")
+Output(10,1,"MATH NEXT MENU  MODE MODES")
+0→K
+Repeat K
+getKey→K
+End
+ClrHome
+Output(1,1,"2ND FUNCTIONS          2/2")
+Output(2,1,"SIN COS TAN  INVERSE")
+Output(3,1,"X2  SQRT    ^  XROOT")
+Output(4,1,"LOG  10^X   LN  E^X")
+Output(5,1,"STO N  STORE IN RN")
+Output(6,1,"2ND STO N  RECALL RN")
+Output(7,1,"2ND ENTER  LAST ARG")
+Output(8,1,"2ND DEL  CLEAR STACK")
+Output(9,1,"2ND MODE  QUIT")
+Output(10,1,"Y= TO GRAPH  SOFT KEYS")
+0→K
+Repeat K
+getKey→K
+End
+End
+If C=99
+1→Q
+End
+If not(V) and O≥0:Then
+If O=1
+{H}→ʟRPNO
+ʟRPNS→ʟRPNU
+If T
+augment({0},seq(ʟRPNS(I),I,N+2-T,N+1))→ʟRPNL
+N+1-T→dim(ʟRPNS)
+For(I,1,O)
+ʟRPNO(I)→ʟRPNS(dim(ʟRPNS)+1)
+End
+End
+End
+End
+End
+{A,F,D,P}→ʟRPNM
+DelVar ʟRPNK
+DelVar ʟRPNJ
+DelVar ʟRPNA
+DelVar ʟRPNP
+DelVar ʟRPNO
+ClrHome
